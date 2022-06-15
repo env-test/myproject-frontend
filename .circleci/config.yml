@@ -52,7 +52,7 @@ jobs:
     steps:
       - add_ssh_keys:
             fingerprints:
-              - "46:f0:4c:5d:8f:d7:fb:34:46:6f:61:a3:1a:cd:1d:c9" # EDIT this with the SSH key fingerprint from circleci seettings
+              - "a9:63:72:34:44:0b:e9:1a:d8:45:21:8c:ec:f7:af:1c" # EDIT this with the SSH key fingerprint from circleci seettings
       - attach_workspace:
           at: .
       - run:
@@ -107,7 +107,7 @@ jobs:
             mkdir -p ~/.ssh
             ssh-keyscan github.com >> ~/.ssh/known_hosts
             ssh-add -D
-            ssh-add ~/.ssh/id_rsa_46f04c5d8fd7fb34466f61a31acd1dc9 # EDIT this with the SSH key fingerprint from circleci seettings (without columns)
+            ssh-add ~/.ssh/id_rsa_a9637234440be91ad845218cecf7af1c # EDIT this with the SSH key fingerprint from circleci seettings (without columns)
             git clone git@github.com:cs-ops21/myproject-frontend.git
             cd myproject-frontend
             git config user.email "git@circleci.com"
@@ -118,4 +118,4 @@ jobs:
             git add -f ./charts/app/${REPO_NAME}/values-$ENV.yaml
             git add -f ./charts/tasks/values-$ENV.yaml
             git commit -m "CircleCI update $IMAGE_TAG"
-            git push -u origin master
+            git push -u origin master 
