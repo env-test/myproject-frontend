@@ -52,7 +52,7 @@ jobs:
     steps:
       - add_ssh_keys:
             fingerprints:
-              - "eb:27:e9:00:a6:87:73:58:ff:af:e0:39:ea:e2:29:04" # EDIT this with the SSH key fingerprint from circleci seettings
+              - "46:f0:4c:5d:8f:d7:fb:34:46:6f:61:a3:1a:cd:1d:c9" # EDIT this with the SSH key fingerprint from circleci seettings
       - attach_workspace:
           at: .
       - run:
@@ -107,9 +107,9 @@ jobs:
             mkdir -p ~/.ssh
             ssh-keyscan github.com >> ~/.ssh/known_hosts
             ssh-add -D
-            ssh-add ~/.ssh/id_rsa_eb27e900a6877358ffafe039eae22904 # EDIT this with the SSH key fingerprint from circleci seettings (without columns)
-            git clone git@github.com:$GITOPS_REPO_OWNER/$GITOPS_REPO.git
-            cd $GITOPS_REPO
+            ssh-add ~/.ssh/id_rsa_46f04c5d8fd7fb34466f61a31acd1dc9 # EDIT this with the SSH key fingerprint from circleci seettings (without columns)
+            git clone git@github.com:cs-ops21/myproject-frontend.git
+            cd myproject-frontend
             git config user.email "git@circleci.com"
             git config user.name "CircleCI"
             sed -i -e "s|tag:.*|tag: \"$IMAGE_TAG\" # $(date -u +'%Y-%m-%dT%H:%M:%SZ') $CIRCLE_BUILD_URL|" ./charts/app/${REPO_NAME}/values-$ENV.yaml
